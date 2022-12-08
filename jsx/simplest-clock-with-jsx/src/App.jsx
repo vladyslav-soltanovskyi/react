@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <div className={"seconds".concat(" ", isOdd ? "" : "active")}>Now is {count}</div>
+    <div className={"seconds".concat(" ", isOdd ? "active" : "")}>Now is {count}</div>
   );
 }
 
