@@ -13,7 +13,7 @@ function getAge(date) {
 
 function Greeting({ firstName, lastName, birthDate }) {
   return (
-    <div className="greeting">My name is {firstName} {lastName}. I am {getCurrentAge(birthDate)} years old</div>
+    <div className="greeting">My name is {firstName} {lastName}. I am {getAge(birthDate)} years old</div>
   );
 }
 
