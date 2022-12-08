@@ -2,6 +2,7 @@ import React from "react";
 
 function App() {
   const [count, setCount] = React.useState(0);
+  const isOdd = count % 2 === 1;
 
   const tick = () => setCount((prevCount) => prevCount + 1);
 
@@ -14,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <div className="seconds">Now is {count}</div>
+    <div className={"seconds".concat(" ", isOdd ? "" : "active")}>Now is {count}</div>
   );
 }
 
