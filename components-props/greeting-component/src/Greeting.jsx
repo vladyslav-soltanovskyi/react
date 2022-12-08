@@ -1,15 +1,7 @@
 import React from "react";
+import moment from "moment";
 
-function getAge(date) {
-  var today = new Date();
-  var birthDate = new Date(date);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-  }
-  return age;
-}
+const getAge = (date) => moment().diff(new Date(date), "years");
 
 function Greeting({ firstName, lastName, birthDate }) {
   return (
