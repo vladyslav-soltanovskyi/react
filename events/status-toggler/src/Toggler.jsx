@@ -11,7 +11,7 @@ class Toggler extends React.Component {
     const { status } = this.state;
 
     return (
-      <button class="toggler" onClick={this.onClick}>{status ? 'On' : 'Off'}</button>
+      <button className="toggler" onClick={this.onClick}>{status ? 'On' : 'Off'}</button>
     );
   }
 }
