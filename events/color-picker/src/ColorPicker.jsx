@@ -2,7 +2,7 @@ import React from "react";
 
 class ColorPicker extends React.Component {
   state = {
-    color: false
+    color: ""
   }
 
   onMouseEnter = ({ target }) => {
