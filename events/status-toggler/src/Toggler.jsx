@@ -2,16 +2,16 @@ import React from "react";
 
 class Toggler extends React.Component {
   state = {
-    isActive: false
+    status: false
   }
 
-  onClick = () => this.setState({ isActive: !this.state.isActive });
+  onClick = () => this.setState({ status: !this.state.status });
 
   render() {
-    const { isActive } = this.state;
+    const { status } = this.state;
 
     return (
-      <button class="toggler" onClick={this.onClick}>{isActive ? "On" : "Off"}</button>
+      <button class="toggler" onClick={this.onClick}>{status ? "On" : "Off"}</button>
     );
   }
 }
