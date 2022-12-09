@@ -23,17 +23,5 @@ body {
     border-radius: 8px;
     cursor: pointer;
     outline: none;
-
-    &[data-color='red'] {
-      background-color: red;
-    }
-    
-    &[data-color='green'] {
-      background-color: green;
-    }
-    
-    &[data-color='blue'] {
-      background-color: blue;
-    }
   }
 }

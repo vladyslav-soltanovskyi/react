@@ -1,27 +1,33 @@
 import React from "react";
 
+const colors = {
+  red: "#f00",
+  green: "#0f0",
+  blue: "#00f"
+}
+
 class Colors extends React.Component {
-  handleChangeBackground = ({ target }) => {
-    document.body.style.backgroundColor = target.dataset.color;
+  handleChangeBackground = (color) => {
+    document.body.style.backgroundColor = color;
   }
 
   render() {
     return (
       <div className="colors">
         <button
-          data-color="red"
+          style={{ backgroundColor: colors.red }}
           className="colors__button"
-          onClick={this.handleChangeBackground}
+          onClick={() => this.handleChangeBackground(colors.red)}
         />
         <button
-          data-color="green"
+          style={{ backgroundColor: colors.green }}
           className="colors__button"
-          onClick={this.handleChangeBackground}
+          onClick={() => this.handleChangeBackground(colors.green)}
         />
         <button
-          data-color="blue"
+          style={{ backgroundColor: colors.blue }}
           className="colors__button"
-          onClick={this.handleChangeBackground}
+          onClick={() => this.handleChangeBackground(colors.blue)}
         />
       </div>
     );
