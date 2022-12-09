@@ -1,7 +1,7 @@
 import React from "react";
 import './counter.scss'
 
-function Profile({ start, interval }) {
+function Counter({ start, interval }) {
   const [count, setCount] = React.useState(start);
 
   const tick = () => setCount((prevCount) => prevCount + 1);
@@ -19,4 +19,4 @@ function Profile({ start, interval }) {
   );
 }
 
-export default Profile;
+export default Counter;
