@@ -1,22 +1,32 @@
 import React from "react";
 import './counter.scss'
 
-function Counter({ start, interval }) {
-  const [count, setCount] = React.useState(start);
+class Counter extends React.Component {
 
-  const tick = () => setCount((prevCount) => prevCount + 1);
+  constructor(props) {
+    super(props);
 
-  React.useEffect(() => {
-    const timerId = setInterval(tick, interval);
-
-    return () => {
-      clearInterval(timerId);
+    this.state = {
+      count: props.start
     }
-  }, []);
+  }
+  
+  tick = () => this.setState({ count: this.state.count + 1 });
 
-  return (
-    <div className="counter">{count}</div>
-  );
+  componentDidMount() {
+    this.timerId = setInterval(this.tick, this.props.interval);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+  }
+
+  render() {
+    const { count } = this.state;
+    return (
+      <div className="counter">{count}</div>
+    );
+  }
 }
 
 export default Counter;
