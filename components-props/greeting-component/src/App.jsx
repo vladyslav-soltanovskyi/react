@@ -6,7 +6,7 @@ function App() {
     <Greeting
       firstName="John"
       lastName="Doe"
-      birthDate={new Date(20, 0, 1)}
+      birthDate={new Date(2005, 0, 1)}
     />
   );
 }
