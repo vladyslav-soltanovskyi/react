@@ -7,9 +7,8 @@ class ColorPicker extends React.Component {
     color: ""
   }
 
-  onMouseEnter = ({ target }) => {
-    const index = colors.findIndex(color => target.className.includes(color));
-    const color = colors[index][0].toUpperCase() + colors[index].slice(1);
+  onMouseEnter = (colorName) => {
+    const color = colorName[0].toUpperCase() + colorName.slice(1);
     this.setState({ color: color });
   }
 
@@ -22,21 +21,13 @@ class ColorPicker extends React.Component {
       <div>
         <div className="picker__title">{color}</div>
         <div>
-          <button
-            className="picker__button picker__button_coral"
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-          />
-          <button
-            className="picker__button picker__button_aqua"
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-          />
-          <button
-            className="picker__button picker__button_bisque"
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
-          />
+          {colors.map(color => (
+            <button
+              className={`picker__button picker__button_${color}`}
+              onMouseEnter={() => this.onMouseEnter(color)}
+              onMouseLeave={this.onMouseLeave}
+            />
+          ))}
         </div>
       </div>
     );
