@@ -1,15 +1,15 @@
 import React from "react";
 
+const colors = ['coral', 'aqua', 'bisque']
+
 class ColorPicker extends React.Component {
   state = {
     color: ""
   }
 
   onMouseEnter = ({ target }) => {
-    const className = "picker__button_";
-    const index = target.className.indexOf(className);
-    let color = target.className.slice(index + className.length);
-    color = color[0].toUpperCase() + color.slice(1);
+    const index = colors.findIndex(color => target.className.includes(color));
+    const color = colors[index][0].toUpperCase() + colors[index].slice(1);
     this.setState({ color: color });
   }
 
