@@ -13,6 +13,8 @@ class ColorPicker extends React.Component {
     this.setState({ color: color });
   }
 
+  onMouseLeave = () => this.setState({ color: "" });
+
   render() {
     const { color } = this.state;
 
@@ -23,14 +25,17 @@ class ColorPicker extends React.Component {
           <button
             className="picker__button picker__button_coral"
             onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
           />
           <button
             className="picker__button picker__button_aqua"
             onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
           />
           <button
             className="picker__button picker__button_bisque"
             onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
           />
         </div>
       </div>
