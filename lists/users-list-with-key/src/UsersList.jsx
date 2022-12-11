@@ -30,8 +30,8 @@ class UsersList extends React.Component {
     
     return (
       <div>
-        <button class="btn" onClick={this.handleChangeSort}>{sorting || '-'}</button>
-        <ul class="users">
+        <button className="btn" onClick={this.handleChangeSort}>{sorting || '-'}</button>
+        <ul className="users">
           {copyUsers.map(user => <User key={user.name} {...user} />)}
         </ul>
       </div>
