@@ -1,16 +1,11 @@
 import React from "react";
+import moment from "moment";
 
 const formattingAmount = (amount) => new Intl.NumberFormat('en-GB').format(amount);
 
-const formattingTime = (date) => new Intl.DateTimeFormat('en-GB', {
-  minute: 'numeric',
-  hour: 'numeric'
-}).format(new Date(date));
+const formattingDate = (date) => moment(date).locale('en-GB').format("DD MMM");
 
-const formattingDate = (date) => new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'short'
-}).format(new Date(date));
+const formattingTime = (date) => moment(date).locale('en-GB').format("HH:mm");
 
 function Transaction({ from, to, amount, rate, time }) {
 
