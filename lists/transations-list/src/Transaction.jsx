@@ -3,20 +3,20 @@ import moment from "moment";
 
 const formattingAmount = (amount) => new Intl.NumberFormat('en-GB').format(amount);
 
-const formattingTime = (date) => moment(date).format("DD MMM");
+const formattingTime = (date) => moment(date).locale('en-GB').format("DD MMM");
 
-const formattingDate = (date) => moment(date).format("HH:mm");
+const formattingDate = (date) => moment(date).locale('en-GB').format("HH:mm");
 
 function Transaction({ from, to, amount, rate, time }) {
 
   return (
-    <li class="transaction">
-    <span class="transaction__date">{formattingTime(time)}</span>
-    <span class="transaction__time">{formattingDate(time)}</span>
-    <span class="transaction__assets">{from} → {to}</span>
-    <span class="transaction__rate">{rate}</span>
-    <span class="transaction__amount">{formattingAmount(amount)}</span>
-  </li>
+    <li className="transaction">
+      <span className="transaction__date">{formattingTime(time)}</span>
+      <span className="transaction__time">{formattingDate(time)}</span>
+      <span className="transaction__assets">{from} → {to}</span>
+      <span className="transaction__rate">{rate}</span>
+      <span className="transaction__amount">{formattingAmount(amount)}</span>
+    </li>
   );
 }
 
