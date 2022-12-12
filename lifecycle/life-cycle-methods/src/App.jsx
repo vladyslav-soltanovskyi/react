@@ -4,7 +4,7 @@ import Life from "./Life";
 
 function App() {
   return (
-    <Life />
+    <Life num={0} />
   );
 }
 

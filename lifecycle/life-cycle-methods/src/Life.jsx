@@ -4,19 +4,15 @@ class Life extends React.Component {
   constructor(props) {
     super(props);
     console.log("constructor: good place to create state");
-    this.state = {
-      count: 0
-    }
   }
 
   componentDidMount() {
-    this.timerId = setInterval(() => this.setState({ count: this.state.count + 1 }), 1000);
     console.log("componentDidMount: API calls, subscriptions");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("shouldComponentUpdate(nextProps, nextState): decide to render or not to render");
-    return this.state.count > 0;
+    return nextProps.number % 2;
   }
   
   componentDidUpdate(prevProps, prevState) {
@@ -24,7 +20,6 @@ class Life extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerId);
     console.log("componentWillUnmount(): cleanup before DOM related to component will be removed");
   }
 
