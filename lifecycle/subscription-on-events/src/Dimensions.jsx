@@ -1,17 +1,9 @@
 import React from "react";
 
-class Clock extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    const { innerHeight, innerWidth } = window;
-
-    this.state = {
-      width: innerWidth,
-      height: innerHeight
-    }
-    document.title = `${innerWidth} x ${innerHeight}`;
+class Dimensions extends React.Component {
+  state = {
+    width: null,
+    height: null
   }
   
   onResize = (e) => {
@@ -19,9 +11,17 @@ class Clock extends React.Component {
     this.setState({ width: innerWidth, height: innerHeight });
     document.title = `${innerWidth} x ${innerHeight}`;
   }
-
+  
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
+    const { innerHeight, innerWidth } = window;
+  
+    this.setState({
+      width: innerWidth,
+      height: innerHeight
+    })
+
+    document.title = `${innerWidth} x ${innerHeight}`;
   }
 
   componentWillUnmount() {
@@ -37,4 +37,4 @@ class Clock extends React.Component {
   }
 }
 
-export default Clock;
+export default Dimensions;
