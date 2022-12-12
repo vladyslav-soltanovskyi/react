@@ -1,27 +1,18 @@
 import React from "react";
+import moment from "moment";
 
-const formattingAmount = (amount) => new Intl.NumberFormat('en-GB').format(amount);
-
-const formattingTime = (date) => new Intl.DateTimeFormat('en-GB', {
-  minute: 'numeric',
-  hour: 'numeric',
-  timeZone: 'Europe/Kyiv'
-}).format(new Date(date));
-
-const formattingDate = (date) => new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'short',
-  timeZone: 'Europe/Kyiv'
-}).format(new Date(date));
+const formatter = new Intl.NumberFormat('en-GB');
 
 function Transaction({ from, to, amount, rate, time }) {
+  const momentDate = moment(time);
+
   return (
     <li className="transaction">
-      <span className="transaction__date">{formattingDate(time)}</span>
-      <span className="transaction__time">{formattingTime(time)}</span>
+      <span className="transaction__date">{momentDate.format("DD MMM")}</span>
+      <span className="transaction__time">{momentDate.format("HH:mm")}</span>
       <span className="transaction__assets">{from} → {to}</span>
       <span className="transaction__rate">{rate}</span>
-      <span className="transaction__amount">{formattingAmount(amount)}</span>
+      <span className="transaction__amount">{formatter.format(amount)}</span>
     </li>
   );
 }
