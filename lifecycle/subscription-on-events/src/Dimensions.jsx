@@ -8,24 +8,22 @@ class Dimensions extends React.Component {
   
   onResize = (e) => {
     const { innerHeight, innerWidth } = e.target;
-    this.setState({ width: innerWidth, height: innerHeight });
-    document.title = `${innerWidth} x ${innerHeight}`;
+    this.setDimensions(innerWidth, innerHeight);
   }
   
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
     const { innerHeight, innerWidth } = window;
-  
-    this.setState({
-      width: innerWidth,
-      height: innerHeight
-    })
-
-    document.title = `${innerWidth} x ${innerHeight}`;
+    this.setDimensions(innerWidth, innerHeight);
   }
-
+  
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
+  }
+  
+  setDimensions = (width, height) => {
+    this.setState({ width, height });
+    document.title = `${width} x ${height}`;
   }
 
   render() {
