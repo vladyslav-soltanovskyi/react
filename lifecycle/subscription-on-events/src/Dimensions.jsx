@@ -30,7 +30,7 @@ class Dimensions extends React.Component {
     const { width, height } = this.state;
 
     return (
-      <div class="dimensions">{width}px - {height}px</div>
+      <div class="dimensions">{`${width}px - ${height}px`}</div>
     );
   }
 }
