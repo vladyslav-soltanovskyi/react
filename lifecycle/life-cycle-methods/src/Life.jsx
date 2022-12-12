@@ -4,6 +4,7 @@ class Life extends React.Component {
   constructor(props) {
     super(props);
     console.log("constructor: good place to create state");
+    this.count = 0;
   }
 
   componentDidMount() {
@@ -12,13 +13,11 @@ class Life extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("shouldComponentUpdate(nextProps, nextState): decide to render or not to render");
-    return nextProps.number % 2;
+    return this.count++ > 0;
   }
   
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.number !== null) {
-      console.log("componentDidUpdate(prevProps, prevState): some updates based on new props");
-    }
+    console.log("componentDidUpdate(prevProps, prevState): some updates based on new props");
   }
 
   componentWillUnmount() {
@@ -28,7 +27,7 @@ class Life extends React.Component {
   render() {
     console.log("return React element to build DOM");
     return (
-      <div className="life">Life Component</div>
+      <div className="life">{this.props.number}</div>
     );
   }
 }
