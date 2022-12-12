@@ -36,7 +36,7 @@ class Dimensions extends React.Component {
         />
         <div class="user__info">
           <span class="user__name">{name}</span>
-          <span class="user__location">{location}</span>
+          <span class="user__location">{location && `from ${location}`}</span>
         </div>
       </div>
     );
