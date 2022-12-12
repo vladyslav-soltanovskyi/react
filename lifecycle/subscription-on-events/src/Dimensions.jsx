@@ -1,39 +1,36 @@
 import React from "react";
 
-const getTimeWithOffset = offset => {
-  const currentTime = new Date();
-  const utcOffset = currentTime.getTimezoneOffset() / 60;
-  return new Date(currentTime.setHours(currentTime.getHours() + offset + utcOffset));
-};
-
 class Clock extends React.Component {
 
   constructor(props) {
     super(props);
 
+    const { innerHeight, innerWidth } = window;
+
     this.state = {
-      width: window.innerWidth,
-      height: window.innerHeight
+      width: innerWidth,
+      height: innerHeight
     }
+    document.title = `${innerWidth} x ${innerHeight}`;
   }
   
-  resize = () => {
-    const height = window.innerHeight;
-    const width = window.innerWidth;
-    document.title = `${width} x ${height}`;
-    this.setState({ width, height });
+  onResize = (e) => {
+    const { innerHeight, innerWidth } = e.target;
+    this.setState({ width: innerWidth, height: innerHeight });
+    document.title = `${innerWidth} x ${innerHeight}`;
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resize);
+    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener('resize', this.onResize);
   }
 
   render() {
     const { width, height } = this.state;
+
     return (
       <div class="dimensions">{width}px - {height}px</div>
     );
