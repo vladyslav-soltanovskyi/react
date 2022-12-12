@@ -32,11 +32,11 @@ class Dimensions extends React.Component {
         <img
           alt="User Avatar"
           src={avatar_url}
-          class="user__avatar"
+          className="user__avatar"
         />
-        <div class="user__info">
-          <span class="user__name">{name}</span>
-          <span class="user__location">{location && `from ${location}`}</span>
+        <div className="user__info">
+          <span className="user__name">{name}</span>
+          <span className="user__location">{location}</span>
         </div>
       </div>
     );
