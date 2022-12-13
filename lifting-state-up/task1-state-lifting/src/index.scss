@@ -1,0 +1,69 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  padding: 8px;
+  background-color: cornsilk;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  &__greeting {
+      opacity: 0.5;
+  }
+
+  &__avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin-left: 16px;
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+
+  &__avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+  }
+
+  &__info {
+      text-align: center;
+      font-size: 24px;
+      margin: 32px;
+  }
+
+  &__name {
+      font-weight: 700;
+  }
+
+  &__location {
+      opacity: 0.5;
+      margin-left: 16px;
+  }
+}
