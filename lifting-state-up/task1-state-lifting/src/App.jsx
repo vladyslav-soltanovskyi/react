@@ -5,7 +5,7 @@ import UserProfile from "./UserProfile";
 
 class App extends React.Component {
   state = {
-    user: null
+    userData: null
   }
   
   fetchUserData = async (id) => {
@@ -15,19 +15,19 @@ class App extends React.Component {
   
   componentDidMount() {
     this.fetchUserData(this.props.userId)
-      .then(user => {
-        this.setState({ user })
+      .then(userData => {
+        this.setState({ userData })
       })
   }
 
   render() {
-    const { user } = this.state;
+    const { userData } = this.state;
     return (
       <div className="page">
         <header className="header">
-          <UserMenu userData={user} />
+          <UserMenu userData={userData} />
         </header>
-        <UserProfile userData={user} />
+        <UserProfile userData={userData} />
       </div>
     );
   }
