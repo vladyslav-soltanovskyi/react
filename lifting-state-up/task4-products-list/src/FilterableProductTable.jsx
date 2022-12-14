@@ -11,6 +11,10 @@ class FilterableProductTable extends React.Component {
     };
   }
 
+  changeFilterText = ({ target }) => this.setState({ filterText: target.value });
+  
+  changeInStockOnly = ({ target }) => this.setState({ inStockOnly: target.checked });
+
   render() {
     const { filterText, inStockOnly } = this.state;
     const { products } = this.props;
@@ -19,6 +23,8 @@ class FilterableProductTable extends React.Component {
         <SearchBar
           filterText={filterText}
           inStockOnly={inStockOnly}
+          changeFilterText={this.changeFilterText}
+          changeInStockOnly={this.changeInStockOnly}
         />
         <ProductTable
           products={products}
