@@ -1,6 +1,10 @@
 import React from "react";
 
-function Dialog ({ title, onClose, children }) {
+function Dialog ({ title, isOpen, onClose, children }) {
+  if(!isOpen) {
+    return null;
+  }
+
   return (
     <div className="dialog">
       <div className="dialog__heading">

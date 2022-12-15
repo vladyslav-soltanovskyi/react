@@ -15,14 +15,13 @@ class App extends React.Component {
     return (
       <div className="app">
         <button className="btn" onClick={this.onOpen}>Show dialog</button>
-        {isOpen && (
-          <Dialog
-            title="Recommendation"
-            onClose={this.onClose}
-          >
-            <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
-          </Dialog>
-        )}
+        <Dialog
+          isOpen={isOpen}
+          title="Recommendation"
+          onClose={this.onClose}
+        >
+          <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
+        </Dialog>
       </div>
     );
   }
