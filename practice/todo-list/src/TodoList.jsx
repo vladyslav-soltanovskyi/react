@@ -3,7 +3,10 @@ import TasksList from "./TasksList";
 
 function TodoList() {
   return (
-    <TasksList />
+    <>
+      <h1 className="title">Todo List</h1>
+      <TasksList />
+    </>
   );
 }
 

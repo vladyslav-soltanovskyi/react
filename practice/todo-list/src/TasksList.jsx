@@ -50,22 +50,19 @@ class TasksList extends React.Component {
     const sortedTasks = tasks.slice().sort((a, b) => a.done - b.done);
 
     return (
-      <>
-        <h1 className="title">Todo List</h1>
-        <main className="todo-list">
-          <CreateTask onCreateTask={this.handleCreateTask} />
-          <ul className="list">
-            {sortedTasks.map(task => (
-              <TaskItem
-                key={task.id}
-                {...task}
-                onDelete={this.handleDeleteTask}
-                onToggleStatus={this.handleToggleStatusTask}
-              />
-            ))}
-          </ul>
-        </main>
-      </>
+      <main className="todo-list">
+        <CreateTask onCreateTask={this.handleCreateTask} />
+        <ul className="list">
+          {sortedTasks.map(task => (
+            <TaskItem
+              key={task.id}
+              {...task}
+              onDelete={this.handleDeleteTask}
+              onToggleStatus={this.handleToggleStatusTask}
+            />
+          ))}
+        </ul>
+      </main>
     );
   }
 }
