@@ -51,16 +51,14 @@ class TodoList extends React.Component {
         <main className="todo-list">
           <CreateTask onCreateTask={this.handleCreateTask} />
           <ul className="list">
-            {sortedTasks.length > 0 && (
-              sortedTasks.map(task => (
-                <TaskItem
-                  key={task.id}
-                  {...task}
-                  onDelete={this.handleDeleteTask}
-                  onToggleStatus={this.handleToggleStatusTask}
-                />
-              ))
-            )}
+            {sortedTasks.map(task => (
+              <TaskItem
+                key={task.id}
+                {...task}
+                onDelete={this.handleDeleteTask}
+                onToggleStatus={this.handleToggleStatusTask}
+              />
+            ))}
           </ul>
         </main>
       </>
