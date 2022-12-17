@@ -1,25 +1,23 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { routes } from "./routes";
 
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <div className="page">
-          <Switch>
+      <div class="page">
+        <BrowserRouter>
+          <Routes>
             {routes.map(({ Component, path }) => (
               <Route
                 key={path}
                 path={path}
-                exact
-              >
-                <Component />
-              </Route>
+                element={(<Component />)}
+              />
             ))}
-          </Switch>
-        </div>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </div>
     );
   }
 }
