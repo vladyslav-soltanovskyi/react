@@ -1,16 +1,19 @@
 const baseUrl = 'https://61d8e2cfe6744d0017ba8cdc.mockapi.io/tasks';
 
-const request = async (url, { method = 'GET', body = {}, ...rest }) => {
+const request = async (url, { method = 'GET', body = {}, ...rest } = {}) => {
   try {
-    const headers = {
-      'Content-Type': 'application/json;charset=utf-8'
+    const options = {
+      method,
+      body: JSON.stringify(body),
+      ...rest,
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      }
     };
-  
-    const options = (method === 'GET')
-      ? { method, ...rest, headers }
-      : { method, body: JSON.stringify(body), ...rest, headers };
     
-    const response = await fetch(`${baseUrl}${url}`, options);
+    const response = method === "GET"
+      ? await fetch(`${baseUrl}${url}`)
+      : await fetch(`${baseUrl}${url}`, options);
     
     if (!response.ok) {
       throw new Error('Server Error');
@@ -22,7 +25,7 @@ const request = async (url, { method = 'GET', body = {}, ...rest }) => {
   }
 }
 
-const getTasks = () => request('', { method: "GET" });
+const getTasks = () => request('');
 
 const createTask = (taskData) => request('', { method: "POST", body: taskData });
 
