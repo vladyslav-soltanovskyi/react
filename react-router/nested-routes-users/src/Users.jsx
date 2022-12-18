@@ -18,7 +18,7 @@ const Products = () => {
 
       <Switch>
           <Route path={links.Users} exact>
-            <span>Select a product please</span>
+            <span>Select a user please</span>
           </Route>
           <Route path={links.User} component={User} />
       </Switch>
