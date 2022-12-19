@@ -3,9 +3,9 @@ import React from "react";
 const Counter = () => {
   const [count, setCount] = React.useState(0);
 
-  increase = () => setCount((prevCount) => prevCount + 1);
+  const increase = () => setCount((prevCount) => prevCount + 1);
 
-  decrease = () => setCount((prevCount) => prevCount - 1);
+  const decrease = () => setCount((prevCount) => prevCount - 1);
 
   return (
     <div className="counter">
